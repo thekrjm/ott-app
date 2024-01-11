@@ -33,7 +33,15 @@ export const Row = ({ title, id, fetchUrl }) => {
           </span>
         </div>
         <div id={id} className='row_posters'>
-
+          {moviesData.map((movie) => (
+            <img
+              className='row_poster'
+              key={movie.id}
+              src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+              alt={movie.title}
+              onClick={() => handleClick(movie)}
+            />
+          ))}
         </div>
         <div className='slider_arrow-right' onClick={() => document.getElementById(id).scrollLeft -= window.innerWidth - 80}  >
           <span className='arrow' >

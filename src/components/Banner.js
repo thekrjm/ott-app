@@ -1,6 +1,6 @@
-import axios from '../api/api_key'
+import axios from '../api/axios'
 import React, { useEffect, useState } from 'react'
-import request from "../api/request"
+import requests from '../api/requests'
 import "./Banner.css"
 import styled from 'styled-components'
 
@@ -13,7 +13,8 @@ const Banner = () => {
   }, [])
 
   const fetchData = async () => {
-    const response = await axios.get(request.fetchNowPlaying);
+    const response = await axios.get(requests.fetchNowPlaying);
+    console.log("리스폰", response);
     const movieId = response.data.results[
       Math.floor(Math.random() * response.data.results.length)
     ].id
